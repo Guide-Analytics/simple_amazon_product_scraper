@@ -1,6 +1,6 @@
 '''
 #################################################
-@product: Gide Product Analysis
+@product: Guide Product Analysis
 @filename: Amazon Config File (Web elements path(CSS / XPath))
 
 @author: Raj Patel
