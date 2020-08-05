@@ -1,6 +1,6 @@
 '''
 #################################################
-@product: Gide Product Analysis
+@product: Guide Product Analysis
 @filename: ReviewScraping File (Scraps the reviews from given URL)
 
 @author: Raj Patel
