@@ -1,6 +1,6 @@
 '''
 #################################################
-@product: Gide Product Analysis
+@product: Guide Product Analysis
 @filename: SetupDriver File (setup the driver object of selenium for chrome browser)
 
 @author: Raj Patel
