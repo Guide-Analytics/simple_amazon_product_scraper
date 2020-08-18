@@ -27,6 +27,6 @@ class SetupDriver:
     
     def __init__(self):
         opt = Options()
-        opt.headless = True # set headless mode to True
-
+        #opt.headless = True # set headless mode to True
+        opt.add_argument('--incognito')
         self.driver = webdriver.Chrome(ChromeDriverManager().install(), options = opt)

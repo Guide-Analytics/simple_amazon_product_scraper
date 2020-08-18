@@ -268,3 +268,51 @@ class AmazonConfig:
             return review
         except:
             return ""
+
+    def getProductName(self, driver):
+
+        """
+        This function gets the name of the product.
+
+        Parameters
+        ----------
+        driver : selenium webdriver object
+            web driver of selenium
+        
+        Returns
+        -------
+        string
+            review name of product
+        """
+        
+        path = '//*[@id="productTitle"]'
+        try:
+            name = driver.find_element_by_xpath(path).text
+            return name
+        except:
+            return ""
+
+    def getAuthorProfile(self, driver, id):
+
+        """
+        This function gets the author url.
+
+        Parameters
+        ----------
+        driver : selenium webdriver object
+            web driver of selenium
+        id : int
+            unique id that corresponds to each unique review
+        
+        Returns
+        -------
+        string
+            author profile url
+        """
+        
+        path = '#customer_review-'+id+' > div:nth-child(1) a'
+        try:
+            profile = driver.find_element_by_css_selector(path).get_attribute('href')
+            return profile
+        except:
+            return ""
