@@ -148,7 +148,7 @@ def reinitiate(driver,url):
     """
     
     driver.quit()
-    driver = webdriver.Chrome(ChromeDriverManager().install(), options=opt);
+    #driver = webdriver.Chrome(ChromeDriverManager().install(), options=opt);
     driver.get(url)
     return driver
 
