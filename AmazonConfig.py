@@ -35,7 +35,11 @@ class AmazonConfig:
     getReviewCount()
         This function collect the total reviews for a product.
     getReviewTitle():
-        This function gets the review title given by reviewer
+        This function gets the review title given by reviewer.
+    getProductName():
+        This function gets the name of the product.
+    getAuthorProfile():
+        This function gets the profile url of the author.
     """
 
     def getPageContent(self, driver):
@@ -123,7 +127,7 @@ class AmazonConfig:
             date a review was posted
         """
         
-        path = '//*[@id="customer_review-'+id+'"]/span'
+        path = '//*[@id="customer_review-'+id+'"]//span[@data-hook="review-date"]'
         message = driver.find_element_by_xpath(path).get_attribute('textContent').split()[-3:]
         date = ' '.join(map(str,message))
         return date
@@ -200,7 +204,7 @@ class AmazonConfig:
             number = text.split()[0]
             return number
         except:
-            return ""
+            return 0
 
     def getAvgRating(self, driver):
 
@@ -309,10 +313,9 @@ class AmazonConfig:
         string
             author profile url
         """
-        
-        path = '#customer_review-'+id+' > div:nth-child(1) a'
+        path = '//*[@id="customer_review-'+id+'"]//div[@data-hook="genome-widget"]/a'
         try:
-            profile = driver.find_element_by_css_selector(path).get_attribute('href')
+            profile = driver.find_element_by_xpath(path).get_attribute('href')
             return profile
         except:
             return ""
