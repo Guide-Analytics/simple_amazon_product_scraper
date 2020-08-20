@@ -29,4 +29,5 @@ class SetupDriver:
         opt = Options()
         opt.headless = True # set headless mode to True
         opt.add_argument('--incognito')
+        opt.add_argument('--no-sandbox')
         self.driver = webdriver.Chrome(ChromeDriverManager().install(), options = opt)
