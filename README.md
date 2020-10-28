@@ -5,9 +5,12 @@ Install the following packages:<br>
 -selenium: To automate scraping. You can download using pip through command line as:<br>
 <pre><em> pip install selenium</em></pre><br>
 
-webdriver-manager: Install the chrome driver inplace so no need to download explicitly. 
+-webdriver-manager: Install the chrome driver inplace so no need to download explicitly. 
 You can download it through command line as:
 <pre><em> pip install webdriver_manager</em></pre><br>
+
+-word to number conversion:
+<pre><em> pip install word2number</em></pre><br>
 
 Currently this script works on chrome browser. <br>
 
