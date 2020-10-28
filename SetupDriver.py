@@ -29,4 +29,8 @@ class SetupDriver:
         opt = Options()
 ##        opt.headless = True # set headless mode to True
         opt.add_argument('--incognito')
-        self.driver = webdriver.Chrome(ChromeDriverManager().install(), options = opt)
+        opt.add_argument('--no-sandbox') try:
+            self.driver = webdriver.Chrome(ChromeDriverManager().install(), options = opt)
+        except ValueError:
+            print("Could not get version for Chrome from this webdriver installation. Please install Chrome browser")
+            exit(-1)
