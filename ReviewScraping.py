@@ -254,7 +254,8 @@ def get_data(urls):
             WebDriverWait(driver, 20).until(ec.number_of_windows_to_be(1))
             # setup all configurations defined in Amazonconfig file
             configuration = config.AmazonConfig()
-
+            
+            price = configuration.getPrice(driver)
             prod_name = configuration.getProductName(driver)
             while not prod_name:
                 driver.refresh()
@@ -325,6 +326,7 @@ def get_data(urls):
                 # create extra columns for product name, avg rating and total reviews
                 df['product_name'] = prod_name # product name
                 df['average_rating'] = avg_rating # overall average rating
+                df['price'] = price
                 df['total_reviews'] = total_review # reviews in Canada.
                 df['product_category'] = category
                 df['product_id'] = product_id
