@@ -255,8 +255,9 @@ def get_data(urls):
             # setup all configurations defined in Amazonconfig file
             configuration = config.AmazonConfig()
             
-            price = configuration.getPrice(driver)
-            prod_name = configuration.getProductName(driver)
+            price = configuration.getPrice(driver)  # price of the product
+            prod_name = configuration.getProductName(driver)  # product name
+            image_url = configuration.getProductImageURL(driver)  # image url of the product
             while not prod_name:
                 driver.refresh()
                 time.sleep(3)
@@ -333,8 +334,9 @@ def get_data(urls):
                 df['meta_data'] = pd.Series([product_metadata])
                 # df['brand_name'] = brand[0] if len(brand) > 0 else ""
                 df['rank'] = rank[0] if len(rank) > 0 else ""
+                df['product_image_url'] = image_url
+                
                 # save to csv
-
                 df.to_csv(f'main_product\{product_id}.csv')
                 del df
 
