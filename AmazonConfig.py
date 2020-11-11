@@ -21,6 +21,10 @@ class AmazonConfig:
     -------
     getPageContent()
         This function finds and return the content of page where all reviews are located.
+    getPrice()
+        This function gets dthe price of the product.
+    getProductImageURL()
+        This function gets the url of product image.
     getReviewer()
         This function returns name of a reviewer.
     getRatings()
@@ -66,6 +70,40 @@ class AmazonConfig:
         path = '//div[@id="cm_cr-review_list"]'
         page_content = driver.find_elements_by_xpath(path)
         return page_content
+    
+    def getPrice(self, driver):
+        """
+        This function gets the price of the product.
+        
+        """
+        try:
+            path = "//*[@id='price_inside_buybox']"
+            price = driver.find_element_by_xpath(path).text
+            price = price.split()[-1]
+            return price
+        except NoSuchElementException:
+            return ""
+        
+    def getProductImageURL(self, driver):
+        """
+        This function returns the url of a product image.
+
+        Parameters
+        ----------
+        driver : selenium webdriver object
+            web driver of selenium
+
+        Returns
+        -------
+        string
+            url of a product image
+        """
+        path = '//*[@id="landingImage"]'
+        try:
+            url = driver.find_element_by_xpath(path).get_attribute('src')
+            return url
+        except NoSuchElementException:
+            return ""
 
     def getReviewer(self, driver, flag, unique_id):
         """
